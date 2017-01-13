@@ -1,6 +1,6 @@
 /*
  * Copyright 2016 Lothar Waßmann <LW@KARO-electronics.de>
- * Copyright 2016 Oliver Wendt <OW@KARO-electronics.de>
+ * Copyright 2017 Oliver Wendt <OW@KARO-electronics.de>
  * Copyright 2016 Michael Vyskocil <MV@KARO-electronics.de>
  *
  * This file is dual-licensed: you can use it either under the terms
@@ -141,7 +141,7 @@
 		compatible = "fsl,imx-audio-sgtl5000";
 		model = "sgtl5000-audio";
 		pinctrl-names = "default";
-		pinctrl-0 = <&pinctrl_ssi1>;
+		pinctrl-0 = <TX_SSI_PIN>;
 		ssi-controller = <&ssi1>;
 		audio-codec = <&sgtl5000>;
 		audio-routing =
@@ -151,6 +151,33 @@
 		mux-int-port = <1>;
 		mux-ext-port = <5>;
 		status = "okay";
+	};
+};
+
+TX_CAN1 {
+	status = "okay";
+};
+
+TX_I2C {
+	status = "okay";
+
+	sgtl5000: sgtl5000@0a {
+		compatible = "fsl,sgtl5000";
+		reg = <0x0a>;
+		VDDA-supply = <&reg_2v5>;
+		VDDIO-supply = <&reg_3v3>;
+		clocks = <&mclk>;
+	};
+
+	polytouch: edt-ft5x06@38 {
+		compatible = "edt,edt-ft5x06";
+		reg = <0x38>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_edt_ft5x06>;
+		interrupts-extended = <TX_GPIO_PIN148 0>;
+		reset-gpios = <TX_GPIO_PIN149 GPIO_ACTIVE_LOW>;
+		wake-gpios = <TX_GPIO_PIN152 GPIO_ACTIVE_HIGH>;
+		linux,wakeup;
 	};
 };
 
@@ -296,34 +323,6 @@ TX_LCD_FB {
 	status = "disabled";
 };
 
-TX_I2C {
-	status = "okay";
-
-	sgtl5000: sgtl5000@0a {
-		compatible = "fsl,sgtl5000";
-		reg = <0x0a>;
-		VDDA-supply = <&reg_2v5>;
-		VDDIO-supply = <&reg_3v3>;
-		clocks = <&mclk>;
-	};
-
-	polytouch: edt-ft5x06@38 {
-		compatible = "edt,edt-ft5x06";
-		reg = <0x38>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&pinctrl_edt_ft5x06>;
-		interrupts-extended = <TX_GPIO_PIN148 0>;
-		reset-gpios = <TX_GPIO_PIN149 GPIO_ACTIVE_LOW>;
-		wake-gpios = <TX_GPIO_PIN152 GPIO_ACTIVE_HIGH>;
-		linux,wakeup;
-	};
-};
-
-TX_CAN1 {
-	status = "okay";
-};
-
-
 TX_PWM {
 	status = "okay";
 };
@@ -350,11 +349,11 @@ TX_UART3 {
 	status = "okay";
 };
 
-TX_USBOTG {
+TX_USBH {
 	status = "okay";
 };
 
-TX_USBH {
+TX_USBOTG {
 	status = "okay";
 };
 

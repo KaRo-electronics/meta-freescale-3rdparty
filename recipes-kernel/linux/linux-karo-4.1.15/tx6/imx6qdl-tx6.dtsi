@@ -1,6 +1,6 @@
 /*
  * Copyright 2016 Lothar Waßmann <LW@KARO-electronics.de>
- * Copyright 2016 Oliver Wendt <OW@KARO-electronics.de>
+ * Copyright 2017 Oliver Wendt <OW@KARO-electronics.de>
  * Copyright 2016 Michael Vyskocil <MV@KARO-electronics.de>
  *
  * This file is dual-licensed: you can use it either under the terms
@@ -81,6 +81,7 @@
 #define TX_SD2		&usdhc2
 #define TX_SPI		&ecspi1
 #define TX_SSI1		&audmux
+#define TX_SSI_PIN	&pinctrl_ssi1
 /* UART */
 #define TX_UART1	&uart1
 #define TX_UART2	&uart2

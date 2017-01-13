@@ -1,6 +1,6 @@
 /*
  * Copyright 2016 Lothar Waßmann <LW@KARO-electronics.de>
- * Copyright 2016 Oliver Wendt <OW@KARO-electronics.de>
+ * Copyright 2017 Oliver Wendt <OW@KARO-electronics.de>
  * Copyright 2016 Michael Vyskocil <MV@KARO-electronics.de>
  *
  * This file is dual-licensed: you can use it either under the terms
@@ -41,15 +41,30 @@
  *     OTHER DEALINGS IN THE SOFTWARE.
  */
 
+/*
+ * Please be reminded that in general DTSI file(s) are include files that are
+ * for more than one purpose (usually bound to a SoC) and as such shouldn't be
+ * edited. For end-user products it should be the DTS file(s) that choose which
+ * devices and pins are active and setup.
+ *
+ * The setup of DT files for Ka-Ro TX COM Modules under Yocto follow a
+ * different, non-standard, implementation, which can make it necessary.
+ */
+
+/*
+ * Please see the imx6*-tx6-gpio.h && imx6*-tx6.dtsi in "linux-karo-x.y.ab/tx6"
+ * for the definitions like TX_NAND or TX_EMMC, etc.
+ */
+
 / {
 	aliases {
 		backlight = &backlight0;
 		backlight0 = &backlight0;
 		/*
-		 * The node/alias 'display' is needed for U-Boot to be able to
-		 * show a logo/splash image at boot time. It needs to include
-		 * 'display-timings' as direct sub-node.
-		 */
+		* The node/alias 'display' is needed for U-Boot to be able to
+		* show a logo/splash image at boot time. It needs to include
+		* 'display-timings' as direct sub-node.
+		*/
 		display = &lvds0;
 		lvds0 = &lvds0;
 		lvds1 = &lvds1;
@@ -126,12 +141,10 @@
 	};
 
 	sound {
-/*		compatible = "karo,imx6qdl-tx6qdl-sgtl5000","fsl,imx-audio-sgtl5000";*/
 		compatible = "fsl,imx-audio-sgtl5000";
 		model = "sgtl5000-audio";
 		pinctrl-names = "default";
-		/*		pinctrl-0 = <&pinctrl_audmux>; */
-		pinctrl-0 = <TX_SSI1>;
+		pinctrl-0 = <TX_SSI_PIN>;
 		ssi-controller = <&ssi1>;
 		audio-codec = <&sgtl5000>;
 		audio-routing =
