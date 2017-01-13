@@ -21,6 +21,10 @@ SRC_URI += "file://reset_ethernet_phy_whenever_the_enet_out_clock_is_being_enabl
 	    file://set-enet_ref_clk-to-50-mhz.patch \
 	   "
 
+# Add patch for EDT M12 touchscreen
+SRC_URI += "file://add-support-for-edt-m12-touch.patch \
+	   "
+
 # Add TX6 module kernel default config(s)
 SRC_URI += "file://defconfig \
 	   "
