@@ -1,6 +1,6 @@
 /*
  * Copyright 2016 Lothar Waßmann <LW@KARO-electronics.de>
- * Copyright 2016 Oliver Wendt <OW@KARO-electronics.de>
+ * Copyright 2016-2017 Oliver Wendt <OW@KARO-electronics.de>
  * Copyright 2016 Michael Vyskocil <MV@KARO-electronics.de>
  *
  * This file is dual-licensed: you can use it either under the terms
@@ -65,6 +65,16 @@
 / {
 	model = "Ka-Ro electronics TX6U Module";
 	compatible = "karo,imx6dl-tx6dl", "fsl,imx6dl";
+};
+
+/*
+ * Every VOU is multi parted: backlight, device, framebuffer, pwm
+ * Thus all parts have to be enabled before a display can be used on the
+ * specific port.
+ */
+
+&backlight0 {
+	status = "okay";
 };
 
 /*

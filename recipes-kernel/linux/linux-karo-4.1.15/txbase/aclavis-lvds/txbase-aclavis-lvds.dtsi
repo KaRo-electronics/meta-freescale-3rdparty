@@ -59,7 +59,7 @@
 
 	backlight0: backlight0 {
 		compatible = "pwm-backlight";
-		pwms = <TX_PWM 0 500000 0>;
+		pwms = <TX_PWM 0 500000>;
 		power-supply = <&reg_lcd0_pwr>;
 		enable-gpios = <TX_GPIO_PIN154 GPIO_ACTIVE_HIGH>;
 		/*
