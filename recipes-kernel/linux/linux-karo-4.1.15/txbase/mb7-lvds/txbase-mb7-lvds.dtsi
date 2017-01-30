@@ -128,7 +128,7 @@
 
 		reg_lcd0_pwr: regulator-lcd0-power {
 			compatible = "regulator-fixed";
-			regulator-name = "LCD0 POWER";
+			regulator-name = "LCD0 RESET";
 			regulator-min-microvolt = <3300000>;
 			regulator-max-microvolt = <3300000>;
 			pinctrl-names = "default";
@@ -282,7 +282,7 @@ TX_USBOTG {
 	tx6 {
 		pinctrl_gpio_leds: gpioledsgrp {
 			fsl,pins = <
-				TX_GPIO_PAD153
+				TX_GPIO_PAD153		/* LED Heartbeat */
 			>;
 		};
 

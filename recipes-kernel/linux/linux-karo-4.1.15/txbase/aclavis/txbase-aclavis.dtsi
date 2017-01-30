@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 Lothar Waßmann <LW@KARO-electronics.de>
+ * Copyright 2017 Oliver Wendt <OW@KARO-electronics.de>
  *
  * This file is dual-licensed: you can use it either under the terms
  * of the GPL or the X11 license, at your option. Note that this dual
@@ -78,7 +79,7 @@
 		compatible = "gpio-leds";
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinctrl_gpio_leds>;
-		
+
 		user_led: user {
 			label = "Heartbeat";
 			gpios = <TX_GPIO_PIN153 GPIO_ACTIVE_HIGH>;
@@ -88,7 +89,7 @@
 
 	reg_lcd0_pwr: regulator-lcd-power {
 		compatible = "regulator-fixed";
-		regulator-name = "LCD0 POWER";
+		regulator-name = "LCD0 RESET";
 		regulator-min-microvolt = <3300000>;
 		regulator-max-microvolt = <3300000>;
 		pinctrl-names = "default";
@@ -106,14 +107,14 @@
 		pinctrl_edt_ft5x06: edt-ft5x06grp {
 			fsl,pins = <
 				TX_GPIO_PAD148		/* Interrupt */
-				TX_GPIO_PAD149 		/* Reset */
-				TX_GPIO_PAD152 		/* Wake */
+				TX_GPIO_PAD149		/* Reset */
+				TX_GPIO_PAD152		/* Wake */
 			>;
 		};
 
 		pinctrl_gpio_leds: gpioledsgrp {
 			fsl,pins = <
-				TX_GPIO_PAD153
+				TX_GPIO_PAD153		/* LED Heartbeat */
 			>;
 		};
 
