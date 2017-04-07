@@ -145,7 +145,7 @@ TX_LDB {
 			 * lvds0 & lvds1, otherwise it will be overwritten.
 			 */
 			native-mode = <&timing0>;
-			timing0: hsd100pxn1 {
+			hsd100pxn1 {
 				clock-frequency = <65000000>;
 				hactive = <1024>;
 				vactive = <768>;
@@ -155,6 +155,17 @@ TX_LDB {
 				vfront-porch = <7>;
 				hsync-len = <60>;
 				vsync-len = <10>;
+			};
+			timing0: ETML101001DKA {
+				clock-frequency = <0x043b5fc0>;
+				hactive = <0x00000500>;
+				vactive = <0x00000320>;
+				hback-porch = <0x00000032>;
+				hsync-len = <0x0000003c>;
+				hfront-porch = <0x00000032>;
+				vback-porch = <0x00000005>;
+				vsync-len = <0x0000000d>;
+				vfront-porch = <0x00000005>;
 			};
 		};
 	};
@@ -171,7 +182,7 @@ TX_LDB {
 			 * lvds0 & lvds1, otherwise it will be overwritten.
 			 */
 			native-mode = <&timing1>;
-			timing1: hsd100pxn1 {
+			hsd100pxn1 {
 				clock-frequency = <65000000>;
 				hactive = <1024>;
 				vactive = <768>;
@@ -181,6 +192,17 @@ TX_LDB {
 				vfront-porch = <7>;
 				hsync-len = <60>;
 				vsync-len = <10>;
+			};
+			timing1: ETML101001DKA {
+				clock-frequency = <0x043b5fc0>;
+				hactive = <0x00000500>;
+				vactive = <0x00000320>;
+				hback-porch = <0x00000032>;
+				hsync-len = <0x0000003c>;
+				hfront-porch = <0x00000032>;
+				vback-porch = <0x00000005>;
+				vsync-len = <0x0000000d>;
+				vfront-porch = <0x00000005>;
 			};
 		};
 	};
