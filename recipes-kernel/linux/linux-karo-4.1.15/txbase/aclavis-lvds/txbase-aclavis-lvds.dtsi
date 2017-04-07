@@ -135,7 +135,7 @@ TX_LDB {
 	lvds0: lvds-channel@0 {
 		crtc = "ipu1-di0";
 		fsl,data-mapping = "spwg";
-		fsl,data-width = <18>;
+		fsl,data-width = <24>;
 		primary;
 		status = "disabled";
 
