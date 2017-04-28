@@ -108,6 +108,17 @@
 
 	/* override imx6dl.dtsi gpu clock definition bug */
 
+	soc {
+		gpu@00130000 {
+			clocks = <&clks IMX6QDL_CLK_GPU2D_AXI>, <&clks IMX6QDL_CLK_OPENVG_AXI>,
+				 <&clks IMX6QDL_CLK_GPU3D_AXI>, <&clks IMX6QDL_CLK_GPU2D_CORE>,
+				 <&clks IMX6QDL_CLK_GPU3D_CORE>, <&clks IMX6QDL_CLK_DUMMY>;
+			clock-names = "gpu2d_axi_clk", "openvg_axi_clk",
+				      "gpu3d_axi_clk", "gpu2d_clk",
+				      "gpu3d_clk", "gpu3d_shader_clk";
+		};
+	};
+
 	clocks {
 		#address-cells = <1>;
 		#size-cells = <0>;
