@@ -42,6 +42,10 @@ SRC_URI += "file://reset_ethernet_phy_whenever_the_enet_out_clock_is_being_enabl
 SRC_URI += "file://add-support-for-edt-m12-touch.patch \
 	   "
 
+# Add patch faulty GPU clock defintion for imx6dl
+SRC_URI += "file://linux-nxp-v4.1-tx6dl-dts-Faulty-GPU-clock-definition.patch \
+	   "
+
 # Add TX6 module kernel default config(s)
 SRC_URI += "file://defconfig \
 	   "
