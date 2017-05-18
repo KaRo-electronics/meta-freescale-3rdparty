@@ -308,7 +308,30 @@ TX_USBOTG {
 };
 
 &iomuxc {
+	pinctrl-0 = <&pinctrl_hog &pinctrl_hog2>;
 	tx6 {
+		pinctrl_hog2: hoggrp {
+			fsl,pins = <
+			/* CTE Aclavis Arduino Header */
+				TX_GPIO_PIN190
+				TX_GPIO_PIN191
+				TX_GPIO_PIN192
+
+				TX_GPIO_PIN103
+				TX_GPIO_PIN104
+				TX_GPIO_PIN105
+				TX_GPIO_PIN106
+				TX_GPIO_PIN107
+				TX_GPIO_PIN108
+				TX_GPIO_PIN109
+				TX_GPIO_PIN110
+				TX_GPIO_PIN112	/* CSI0_HSYNC */
+				TX_GPIO_PIN113
+				TX_GPIO_PIN114
+			/* END CTE Aclavis Arduino Header */
+			>;
+		};
+
 		pinctrl_edt_ft5x06: edt-ft5x06grp {
 			fsl,pins = <
 				TX_GPIO_PAD148		/* Interrupt */
