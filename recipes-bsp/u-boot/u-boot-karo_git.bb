@@ -8,7 +8,7 @@ PROVIDES = "u-boot-karo"
 
 PV = "v2015.10-rc2+git${SRCPV}"
 
-SRCREV = "9c867060812647af60840df7caf78f6567b2bd29"
+SRCREV = "5205b43fb14e1dd7213793b856a988a12a3eddb6"
 SRCBRANCH = "master"
 SRC_URI = "git://git.karo-electronics.de/karo-tx-uboot.git;branch=${SRCBRANCH} \
 	   file://mx6-soc-l2en.patch \
